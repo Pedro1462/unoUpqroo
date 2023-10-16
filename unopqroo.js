@@ -71,12 +71,24 @@ for (var cTCards = 0; cTCards < 7; cTCards++) {
             cardsPlayers["player_"+cPlayers] = [];    
         }
         
-        cardsPlayers["player_"+cPlayers].push(deck[cTCards]);
+        cardsPlayers["player_"+cPlayers].push(deck.shift());
+        
     }
 }
 
-console.log(cardsPlayers);
+var trash =[];
 
-//investigar comparadores en node para que sirve, para que funciona y un ejemplo
-//investigar validadores de variables
-//
+trash.push(deck.shift(deck));
+
+console.log(trash);
+
+function cardValidation(card){
+    console.log(card.number)
+    if ( card. number == 2, card. color == "amarillo"){
+        console.log("es igual")
+    } else {console.log("no es igual")}
+}
+
+cardValidation({color: "verde", number: 2, type: "comun" });
+
+
