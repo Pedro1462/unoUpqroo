@@ -80,15 +80,37 @@ var trash =[];
 
 trash.push(deck.shift(deck));
 
-console.log(trash);
+//console.log(trash);
 
 function cardValidation(card){
     console.log(card.number)
-    if ( card. number == 2, card. color == "amarillo"){
-        console.log("es igual")
+    // se le resta -1 porque el valor actual que arrojaría no existe en el arreglo
+    if ( card.number == trash[trash.length-1].number || card.color == trash[trash.length-1].color){
+        console.log("es igual");
     } else {console.log("no es igual")}
 }
 
-cardValidation({color: "verde", number: 2, type: "comun" });
+//cardValidation({color: "Yellow", number: 5, type: "comun" });
+
+// para separar y se cumpla uno u otro es || o con &&; ambos deben ser verdaderos para poderje ejecutar
+// Or y AND revisar**
+
+//determinar la primera carta que tiene el primer jugador
+// in iguala  
+for (const player in cardsPlayers){
+console.log(cardsPlayers[player]);
+//primer player ponga una carta
+//Paso 1: Ver cartas
+//Paso 2: Elegir carta
+//Paso 3: Validar carta
+//Paso 4: Poner carta (de mano jugador a trash)
+}
 
 
+const turn = rl.question("Tuno del jugador?", {})
+
+var first = cardsPlayers.["player_"+turn].shift();
+trash.push(first);
+
+//const selec = rl.question("Que carta eliges?", {})
+//cardsPlayers.["player_"+turn]
