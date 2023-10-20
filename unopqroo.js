@@ -85,7 +85,7 @@ trash.push(deck.shift(deck));
 function cardValidation(card){
     console.log(card.number)
     // se le resta -1 porque el valor actual que arrojaría no existe en el arreglo
-    if ( card.number == trash[trash.length-1].number || card.color == trash[trash.length-1].color){
+    if ( card.number == trash[trash.length-1].number && card.color == trash[trash.length-1].color){
         console.log("es igual");
     } else {console.log("no es igual")}
 }
@@ -97,20 +97,56 @@ function cardValidation(card){
 
 //determinar la primera carta que tiene el primer jugador
 // in iguala  
-for (const player in cardsPlayers){
-console.log(cardsPlayers[player]);
+//for (const player in cardsPlayers){
+//console.log(cardsPlayers[player]);
 //primer player ponga una carta
 //Paso 1: Ver cartas
 //Paso 2: Elegir carta
 //Paso 3: Validar carta
 //Paso 4: Poner carta (de mano jugador a trash)
-}
+//}
 
 
-const turn = rl.question("Tuno del jugador?", {})
 
-var first = cardsPlayers.["player_"+turn].shift();
-trash.push(first);
+
+//const turn = rl.question("Tuno del jugador?", {})
+//console.log(cardsPlayers["player_"+turn]);
+//const play = cardsPlayers["player_"+turn]
+
+
+//console.log(trash);
 
 //const selec = rl.question("Que carta eliges?", {})
-//cardsPlayers.["player_"+turn]
+//election = play[selec-1]
+//console.log(election);
+//cardValidation(election);
+//trash.push(election);
+//console.log(trash);
+
+
+
+
+
+
+//Función para manejar la carta especial "+2"
+function plusTwo(card) {
+   const nextPlayerIndex = (cPlayers + 1) % players;
+    if(card.number == "+2"){
+    cardsPlayers["player_"+nextPlayerIndex].push(deck.shift());
+    cardsPlayers["player_"+nextPlayerIndex].push(deck.shift());
+    }
+}
+plusTwo({color: "Yellow",number : "+2", type: "especial"});
+console.log(cardsPlayers);
+
+//function plusTwo(card) {
+  //  const nextPlayerIndex = (cPlayers + 1) % players;
+    //if(cardValidation(plusTwo)){
+      //  for(var moreTwo = 0; moreTwo < 2; moreTwo++){
+        //    cardsPlayers["player_" + nextPlayerIndex].push(deck.shift());
+       // }
+    //}
+//}
+//plusTwo({color: "Yellow",number : 7 , type: "especial"});
+//console.log(cardsPlayers);
+//console.log(trash);
